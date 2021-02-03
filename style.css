@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+*,
+* ::before,
+* ::after{
+    box-sizing: border-box; }
+
+.contarner{
+    max-width: 1920px;
+    margin: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+
+.weather{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url("./img/weatherBG.jpg") no-repeat;
+    background-size: 100%;
+}
+
+/* date */
+.date{
+    position: absolute;
+    display: grid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+.time{
+    font-size: 120px;
+}
+
+.weeks{
+    font-size: 38px;
+}
+.weeks > span {
+    padding: 0 10px;
+}
+
