@@ -42,4 +42,34 @@ function Update() {
 }
 Update();
 setInterval(Update, 1000);
-  
+
+// ===========================================================================
+// ===========================================================================
+/* ajax */
+const ApiKey = "e3847e0549bd3151bbf2e9cf31b73f6e";
+let WeatherSity = "Qaraghandy",
+    WeatherCountry = "kz";
+
+let WeatherXhr = `http://api.openweathermap.org/data/2.5/weather?q=${WeatherSity},${WeatherCountry}&appid=${ApiKey}`;
+
+let sity, weather_C;
+let dataElement;
+
+let xhr = new XMLHttpRequest();
+    function fankWaetherXhr(TypeRequest, url){
+        xhr.onreadystatechange = () =>{
+            if(xhr.readyState == 4 && xhr.status == 200){
+                dataElement = JSON.parse(xhr.response);
+            }
+        }
+        xhr.open(TypeRequest, url); 
+        xhr.send();
+    }
+
+fankWaetherXhr("GET", WeatherXhr);
+
+console.log(dataElement)
+
+
+
+
