@@ -55,20 +55,24 @@ let WeatherXhr = `http://api.openweathermap.org/data/2.5/weather?q=${WeatherSity
 let sity, weather_C;
 let dataElement;
 
+
 let xhr = new XMLHttpRequest();
     function fankWaetherXhr(TypeRequest, url){
         xhr.onreadystatechange = () =>{
             if(xhr.readyState == 4 && xhr.status == 200){
-                dataElement = JSON.parse(xhr.response);
+                dataElement = JSON.parse(xhr.responseText);
+                
+                document.getElementById('sity').innerHTML = dataElement.name;
+                document.getElementById('temp').innerHTML = dataElement.main.temp;
+                document.getElementById('humidity').innerHTML = dataElement.main.humidity;
             }
         }
-        xhr.open(TypeRequest, url); 
+        xhr.open(TypeRequest, url);
         xhr.send();
     }
 
 fankWaetherXhr("GET", WeatherXhr);
 
-console.log(dataElement)
 
 
 
